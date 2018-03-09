@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-    private bool isMovingHorizontal;
-    private bool isMovingVertical;
+    private bool isMovingHorizontal = false;
+    private bool isMovingVertical = false;
+    private bool isOnPlatform = false;
 
     // Use this for initialization
     private void Start() {
-        isMovingHorizontal = false;
-        isMovingVertical = false;
+
     }
 
     // Update is called once per frame
@@ -44,8 +44,20 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.GetComponent<Truck>()) {
+        if(other.CompareTag("Destroyer")) {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other) {
+        if(other.CompareTag("Platform")) {
+            transform.SetParent(other.transform);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        if(other.CompareTag("Platform")) {
+            transform.SetParent(null);
         }
     }
 }

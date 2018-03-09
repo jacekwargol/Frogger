@@ -9,32 +9,32 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1220666416329884}
+  m_RootGameObject: {fileID: 1307499127673728}
   m_IsPrefabParent: 1
---- !u!1 &1220666416329884
+--- !u!1 &1307499127673728
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4154358186906870}
-  - component: {fileID: 212382040895893738}
-  - component: {fileID: 114346798862012904}
-  - component: {fileID: 61061164268148070}
+  - component: {fileID: 4225803892076632}
+  - component: {fileID: 212265562438013194}
+  - component: {fileID: 114448379509667410}
+  - component: {fileID: 61968654393906714}
   m_Layer: 0
-  m_Name: Truck
-  m_TagString: Destroyer
+  m_Name: Boat
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4154358186906870
+--- !u!4 &4225803892076632
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1220666416329884}
+  m_GameObject: {fileID: 1307499127673728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -42,12 +42,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61061164268148070
+--- !u!61 &61968654393906714
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1220666416329884}
+  m_GameObject: {fileID: 1307499127673728}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -59,7 +59,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2.1111112, y: 1}
-    newSize: {x: 1.52, y: 0.72}
+    newSize: {x: 0.64, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -67,24 +67,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1111112, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114346798862012904
+--- !u!114 &114448379509667410
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1220666416329884}
+  m_GameObject: {fileID: 1307499127673728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0fa83089eb8e7b4aafe12310df269b5, type: 3}
+  m_Script: {fileID: 11500000, guid: 14ca31999559b1d408d6ce7900d43bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
---- !u!212 &212382040895893738
+--- !u!212 &212265562438013194
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1220666416329884}
+  m_GameObject: {fileID: 1307499127673728}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -118,7 +118,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.52, y: 0.72}
+  m_Size: {x: 0.64, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

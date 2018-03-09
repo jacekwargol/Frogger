@@ -12,8 +12,8 @@ public class SpawnerController : MonoBehaviour {
     // Use this for initialization
     void Start() {
         timeTillSpawn = spawnRate;
-        var random = new System.Random();
-        var direction = (random.Next(0, 2) == 0 ? Vector3.left : Vector3.right);
+//        var random = new System.Random();
+//        var direction = (random.Next(0, 2) == 0 ? Vector3.left : Vector3.right);
     }
 
     // Update is called once per frame
