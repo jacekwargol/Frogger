@@ -43,19 +43,17 @@ public class PlayerController : MonoBehaviour {
         transform.position += pos;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
+    private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Platform")) {
             transform.SetParent(other.transform);
             isOnPlatform = true;
         }
 
         else if(other.CompareTag("Destroyer")) {
-//            Destroy(gameObject);
+            //            Destroy(gameObject);
         }
 
         else if(other.CompareTag("Water") && !isOnPlatform) {
-//            Collider2D[] collisions = new Collider2D[10];
             var collisions = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y),
                 0.1f);
             foreach(var collider in collisions) {
@@ -66,20 +64,11 @@ public class PlayerController : MonoBehaviour {
                 }
             }
 
-            if(!isOnPlatform)
-            {
+            if(!isOnPlatform) {
                 Debug.Log("water");
                 Destroy(gameObject);
             }
         }
-    }
-
-    private void OnTriggerStay2D(Collider2D other) {
-        //        if(other.CompareTag("Platform")) {
-        //            transform.SetParent(other.transform);
-        //            isOnPlatform = true;
-        //            Debug.Log("platform");
-        //        }
     }
 
     private void OnTriggerExit2D(Collider2D other) {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boat : Actor {
     [SerializeField] private float speed = 5f;
-    private Vector3 direction;
+    private Vector3 direction = Vector3.right;
 
     public override void Initialize(Vector3 pos, Vector3 direction) {
         this.direction = direction;
