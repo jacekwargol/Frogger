@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212265562438013194}
   - component: {fileID: 114448379509667410}
   - component: {fileID: 61968654393906714}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Boat
   m_TagString: Platform
   m_Icon: {fileID: 0}

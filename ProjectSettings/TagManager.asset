@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Destroyer
   - Platform
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - 
   - 
   - Background
-  - 
+  - Object
   - 
   - 
   - 
@@ -48,4 +49,7 @@ TagManager:
     locked: 0
   - name: Object
     uniqueID: 4125723801
+    locked: 0
+  - name: Player
+    uniqueID: 2280332955
     locked: 0
