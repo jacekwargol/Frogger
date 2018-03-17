@@ -3,15 +3,17 @@
 public class PlayerController : MonoBehaviour {
     [SerializeField] private int startingLives = 4;
 
+    private int currentLives;
+
     private bool isMovingHorizontal = false;
     private bool isMovingVertical = false;
-    private int currentLives;
-    private Rigidbody2D rb;
+
     private Vector3 originalPos;
 
 
     public void LifeLost() {
         if(currentLives <= 0) {
+            Debug.Log(GameManager.Instance);
             GameManager.Instance.HandleLose();
         }
 
@@ -22,21 +24,17 @@ public class PlayerController : MonoBehaviour {
     }
 
 
-    // Use this for initialization
     private void Start() {
         originalPos = transform.position;
         currentLives = startingLives;
-        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     private void Update() {
         HandleInput();
     }
 
     private void HandleInput() {
         float x;
-
         if((x = Input.GetAxisRaw("Horizontal")) != 0) {
             if(!isMovingHorizontal) {
                 Move(new Vector3(x, 0, 0));
@@ -59,9 +57,17 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    private void SpawnCat() {
+        var cat = new GameObject();
+        var sr = cat.AddComponent<SpriteRenderer>();
+        sr.sprite = GetComponent<SpriteRenderer>().sprite;
+        sr.sortingLayerName = "Player";
+        cat.transform.localScale = transform.localScale;
+        Instantiate(cat, transform.position, Quaternion.identity);
+    }
+
     private void Move(Vector3 pos) {
-                transform.position += pos;
-//        rb.MovePosition(transform.position + pos);
+        transform.position += pos;
     }
 
     private void OnDestroyerCollision() {
