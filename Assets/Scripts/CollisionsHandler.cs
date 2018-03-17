@@ -45,9 +45,7 @@ public class CollisionsHandler : MonoBehaviour {
         DestroyerCollision();
     }
 
-    private void HomeCollision(Collider2D other)
-    {
-        Debug.Log("home");
+    private void HomeCollision(Collider2D other) {
         var home = other.GetComponent<HomeTile>();
         if(home == null) {
             return;
@@ -56,7 +54,7 @@ public class CollisionsHandler : MonoBehaviour {
         if(home.IsFree) {
             home.IsFree = false;
             GameManager.Instance.CatAtHome();
-            SendMessage("SpawnCat");
+            SendMessage("FreeHomeCollision");
         }
         else {
             DestroyerCollision();

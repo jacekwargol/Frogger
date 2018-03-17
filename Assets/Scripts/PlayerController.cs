@@ -3,30 +3,36 @@
 public class PlayerController : MonoBehaviour {
     [SerializeField] private int startingLives = 4;
 
-    private int currentLives;
+    public int LivesLeft { get; private set; }
 
     private bool isMovingHorizontal = false;
     private bool isMovingVertical = false;
 
     private Vector3 originalPos;
 
+    private LivesDisplay livesDisplay;
+
 
     public void LifeLost() {
-        if(currentLives <= 0) {
+        LivesLeft--;
+        livesDisplay.UpdateLives();
+
+        if(LivesLeft <= 0) {
             Debug.Log(GameManager.Instance);
             GameManager.Instance.HandleLose();
         }
 
         else {
-            currentLives--;
             transform.position = originalPos;
         }
     }
 
 
-    private void Start() {
+    private void Awake() {
         originalPos = transform.position;
-        currentLives = startingLives;
+        LivesLeft = startingLives;
+
+        livesDisplay = FindObjectOfType<LivesDisplay>();
     }
 
     private void Update() {
@@ -57,17 +63,22 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void SpawnCat() {
+    private void FreeHomeCollision() {
         var cat = new GameObject();
         var sr = cat.AddComponent<SpriteRenderer>();
         sr.sprite = GetComponent<SpriteRenderer>().sprite;
         sr.sortingLayerName = "Player";
         cat.transform.localScale = transform.localScale;
         Instantiate(cat, transform.position, Quaternion.identity);
+
+        transform.position = originalPos;
+
     }
 
     private void Move(Vector3 pos) {
-        transform.position += pos;
+        var newX = Mathf.Clamp(transform.position.x + pos.x, 0f, 13f);
+        var newY = Mathf.Clamp(transform.position.y + pos.y, 0f, 13f);
+        transform.position = new Vector3(newX, newY, 0f);
     }
 
     private void OnDestroyerCollision() {
