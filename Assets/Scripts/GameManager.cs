@@ -7,29 +7,15 @@ public class GameManager : MonoBehaviour {
 
     private int catsAtHome = 0;
     private readonly int catsToWin = 4;
-    private PlayerController player;
 
 
     private GameManager() { }
 
 
-    public void CatAtHome(Collider2D other) {
-        Debug.Log(catsAtHome);
-        var home = other.GetComponent<HomeTile>();
-        if(home == null) {
-            return;
-        }
-
-        if(home.IsFree) {
-            home.IsFree = false;
-            catsAtHome += 1;
-            if(catsAtHome == catsToWin) {
-                HandleWin();
-            }
-            Debug.Log(catsAtHome);
-        }
-        else {
-            player.LifeLost();
+    public void CatAtHome() {
+        catsAtHome += 1;
+        if(catsAtHome == catsToWin) {
+            HandleWin();
         }
     }
 
@@ -52,17 +38,5 @@ public class GameManager : MonoBehaviour {
         }
 
         DontDestroyOnLoad(gameObject);
-    }
-
-    private void Start() {
-        var playerObject = GameObject.FindWithTag("Player");
-
-        if(playerObject != null) {
-            player = playerObject.GetComponent<PlayerController>();
-            Debug.Log(player);
-            Debug.Log("player found");
-        }
-        player = playerObject.GetComponent<PlayerController>();
-        Debug.Log(player);
     }
 }

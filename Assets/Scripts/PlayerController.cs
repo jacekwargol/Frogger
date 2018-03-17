@@ -5,7 +5,6 @@ public class PlayerController : MonoBehaviour {
 
     private bool isMovingHorizontal = false;
     private bool isMovingVertical = false;
-    private bool isOnPlatform = false;
     private int currentLives;
     private Rigidbody2D rb;
     private Vector3 originalPos;
@@ -24,8 +23,7 @@ public class PlayerController : MonoBehaviour {
 
 
     // Use this for initialization
-    private void Start()
-    {
+    private void Start() {
         originalPos = transform.position;
         currentLives = startingLives;
         rb = GetComponent<Rigidbody2D>();
@@ -62,44 +60,11 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Move(Vector3 pos) {
-        //        transform.position += pos;
-        rb.MovePosition(transform.position + pos);
+                transform.position += pos;
+//        rb.MovePosition(transform.position + pos);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Platform")) {
-            transform.SetParent(other.transform);
-            isOnPlatform = true;
-        }
-
-        else if(other.CompareTag("Destroyer")) {
-            LifeLost();
-        }
-
-        else if(other.CompareTag("Water") && !isOnPlatform) {
-            WaterCollision();
-        }
-    }
-
-    private void WaterCollision() {
-        var collisions = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y),
-            0.1f);
-        foreach(var collider in collisions) {
-            if(collider.CompareTag("Platform")) {
-                isOnPlatform = true;
-                return;
-            }
-        }
-
+    private void OnDestroyerCollision() {
         LifeLost();
-    }
-
-
-
-    private void OnTriggerExit2D(Collider2D other) {
-        if(other.CompareTag("Platform")) {
-            transform.SetParent(null);
-            isOnPlatform = false;
-        }
     }
 }
