@@ -13,6 +13,8 @@ public class Sinking : MonoBehaviour {
     private Color baseColor;
     private Color underwaterColor = Color.blue;
 
+    private PlayerController player;
+
     private void Awake() {
         timeToSink = sinkingRate;
         timeToResurface = timeUnderwater;
@@ -39,11 +41,28 @@ public class Sinking : MonoBehaviour {
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.CompareTag("Player")) {
+            player = other.gameObject.GetComponent<PlayerController>();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        if(other.CompareTag("Player")) {
+            player = null;
+        }
+    }
+
+
     private void Sink() {
         isUnderwater = true;
         timeToSink = sinkingRate;
         gameObject.tag = "Untagged";
         sprite.color = underwaterColor;
+
+        if(player) {
+            player.LifeLost();
+        }
     }
 
     private void Resurface() {

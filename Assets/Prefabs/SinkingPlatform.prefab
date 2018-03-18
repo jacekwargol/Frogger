@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ca31999559b1d408d6ce7900d43bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
 --- !u!114 &114756857553898590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9a4d15c3b68e84faa4f2b17b479064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sinkingRate: 2
+  sinkingRate: 0
   timeUnderwater: 1
 --- !u!212 &212048941129039282
 SpriteRenderer:

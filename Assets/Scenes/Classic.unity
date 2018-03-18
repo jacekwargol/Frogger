@@ -1239,7 +1239,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -66, y: -126}
+  m_AnchoredPosition: {x: -108, y: -235}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &151493768
@@ -8013,7 +8013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actorPrefab: {fileID: 4362153976962534, guid: 882f804c4ea4d994fbfd8f247f690072,
     type: 2}
-  spawnRate: 2
+  spawnRate: 3
   direction: {x: 1, y: 0, z: 0}
 --- !u!1 &1362301014
 GameObject:
@@ -8201,7 +8201,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4927129194297596, guid: 5dbe73e76a8482541b6a0d8a951c4781, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 12.9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4927129194297596, guid: 5dbe73e76a8482541b6a0d8a951c4781, type: 2}
       propertyPath: m_LocalPosition.y
@@ -9304,7 +9304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actorPrefab: {fileID: 4362153976962534, guid: 882f804c4ea4d994fbfd8f247f690072,
     type: 2}
-  spawnRate: 2
+  spawnRate: 3
   direction: {x: -1, y: 0, z: 0}
 --- !u!1001 &1703864812
 Prefab:
@@ -11328,7 +11328,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 159, y: 130}
+  m_AnchoredPosition: {x: 306, y: 179}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2110274524

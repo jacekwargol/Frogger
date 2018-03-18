@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         else {
+            transform.SetParent(null);
             transform.position = originalPos;
         }
     }
