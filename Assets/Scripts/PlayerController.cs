@@ -12,12 +12,15 @@ public class PlayerController : MonoBehaviour {
 
     private LivesDisplay livesDisplay;
 
+    private bool isDying = false;
+
 
     public void LifeLost() {
         LivesLeft--;
         livesDisplay.UpdateLives();
 
         if(LivesLeft <= 0) {
+            isDying = true;
             GameManager.Instance.HandleLose();
         }
 
@@ -36,7 +39,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Update() {
-        HandleInput();
+        if(!isDying) {
+            HandleInput();
+        }
     }
 
     private void HandleInput() {

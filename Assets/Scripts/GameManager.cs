@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance { get; private set; }
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour {
     private readonly int catsToWin = 4;
 
     private Animator anim;
+
+    private bool isGameOver = false;
 
     private GameManager() { }
 
@@ -21,7 +24,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public void HandleLose() {
-       anim.SetTrigger("GameOver");
+        isGameOver = true;
+        anim.SetTrigger("GameOver");
     }
 
 
@@ -43,5 +47,21 @@ public class GameManager : MonoBehaviour {
 
     private void Start() {
         anim = FindObjectOfType<Animator>();
+    }
+
+    private void Update() {
+        HandleInput();
+    }
+
+    private void HandleInput() {
+        if(isGameOver) {
+            if(Input.GetKeyDown(KeyCode.Space)) {
+                ResetScene();
+            }
+        }
+    }
+
+    private void ResetScene() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
