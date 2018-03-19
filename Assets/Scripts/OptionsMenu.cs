@@ -10,4 +10,8 @@ public class OptionsMenu : MonoBehaviour {
     public void SetVolume(float volume) {
         audioMixer.SetFloat("Volume", volume);
     }
+
+    public void ToogleFullScreen(bool isFullscreen) {
+        Screen.fullScreen = isFullscreen;
+    }
 }
