@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour {
         livesDisplay.UpdateLives();
 
         if(LivesLeft <= 0) {
-            Debug.Log(GameManager.Instance);
             GameManager.Instance.HandleLose();
         }
 

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
     private int catsAtHome = 0;
     private readonly int catsToWin = 4;
 
+    private Animator anim;
 
     private GameManager() { }
 
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void HandleLose() {
-        Debug.Log("lose");
+       anim.SetTrigger("GameOver");
     }
 
 
@@ -38,5 +39,9 @@ public class GameManager : MonoBehaviour {
         }
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start() {
+        anim = FindObjectOfType<Animator>();
     }
 }
