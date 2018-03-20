@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Update() {
-        if(!isDying) {
+        if(!isDying && !GameManager.Instance.IsGamePaused) {
             HandleInput();
         }
     }

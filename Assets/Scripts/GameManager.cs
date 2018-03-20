@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
     public static GameManager Instance { get; private set; }
 
+    public bool IsGamePaused { get; set; }
+
+
     private int catsAtHome = 0;
     private readonly int catsToWin = 4;
 
@@ -42,7 +45,7 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
+//        DontDestroyOnLoad(gameObject);
     }
 
     private void Start() {
