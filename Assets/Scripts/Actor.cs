@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class Actor : MonoBehaviour
 {
-    public abstract void Initialize(Vector3 position, Vector3 direction);
+    public abstract void Initialize(Vector3 position, Vector3 direction, float speed);
 }
