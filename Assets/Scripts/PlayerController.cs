@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    [SerializeField]
+    private ScoreController scoreController;
     [SerializeField] private int startingLives = 4;
 
     public int LivesLeft { get; private set; }
@@ -9,6 +11,8 @@ public class PlayerController : MonoBehaviour {
     private bool isMovingVertical = false;
 
     private Vector3 originalPos;
+
+    private int maxLineReached;
 
     private LivesDisplay livesDisplay;
 
@@ -69,21 +73,32 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void FreeHomeCollision() {
+        SpawnNewCat();
+
+        transform.position = originalPos;
+
+        scoreController.ScoreCat();
+
+    }
+
+    private void SpawnNewCat() {
         var cat = new GameObject();
         var sr = cat.AddComponent<SpriteRenderer>();
         sr.sprite = GetComponent<SpriteRenderer>().sprite;
         sr.sortingLayerName = "Player";
         cat.transform.localScale = transform.localScale;
         Instantiate(cat, transform.position, Quaternion.identity);
-
-        transform.position = originalPos;
-
     }
 
     private void Move(Vector3 pos) {
         var newX = Mathf.Clamp(transform.position.x + pos.x, 0f, 13f);
         var newY = Mathf.Clamp(transform.position.y + pos.y, 0f, 13f);
         transform.position = new Vector3(newX, newY, 0f);
+
+        if(newY > maxLineReached) {
+            maxLineReached = (int)newY;
+            scoreController.ScoreNewLine();
+        }
     }
 
     private void OnDestroyerCollision() {

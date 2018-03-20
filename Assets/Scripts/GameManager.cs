@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
+    [SerializeField]
+    private ScoreController scoreController;
+
     public static GameManager Instance { get; private set; }
 
     public bool IsGamePaused { get; set; }
@@ -34,6 +38,7 @@ public class GameManager : MonoBehaviour {
 
     private void HandleWin() {
         Debug.Log("win");
+        scoreController.ScoreWin();
     }
 
     private void Awake() {

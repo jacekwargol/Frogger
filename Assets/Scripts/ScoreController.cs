@@ -4,11 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour {
+    [SerializeField] private int pointsForLine = 10;
     [SerializeField] private int pointsForCat = 50;
     [SerializeField] private int pointsForWin = 200;
 
     private int score;
     private Text scoreText;
+
+    public void ScoreNewLine() {
+        score += pointsForLine;
+    }
 
     public void ScoreCat() {
         score += pointsForCat;

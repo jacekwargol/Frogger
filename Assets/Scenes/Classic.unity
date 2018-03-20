@@ -2001,6 +2001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed220c85a5679b46adb48973e9da571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreController: {fileID: 2110274526}
 --- !u!4 &275879706
 Transform:
   m_ObjectHideFlags: 0
@@ -9240,6 +9241,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114008549400419590, guid: 5dbe73e76a8482541b6a0d8a951c4781,
+        type: 2}
+      propertyPath: scoreController
+      value: 
+      objectReference: {fileID: 2110274526}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5dbe73e76a8482541b6a0d8a951c4781, type: 2}
   m_IsPrefabParent: 0
@@ -12950,6 +12956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04fb2968c16c6654a80bd0a27cb8f59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsForLine: 10
   pointsForCat: 50
   pointsForWin: 200
 --- !u!1001 &2117265959
