@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour {
 
     private bool isDying = false;
 
+    private Rigidbody2D rb;
 
     public void LifeLost() {
         LivesLeft--;
@@ -36,6 +37,8 @@ public class PlayerController : MonoBehaviour {
 
 
     private void Awake() {
+        rb = GetComponent<Rigidbody2D>();
+
         originalPos = transform.position;
         LivesLeft = startingLives;
 
@@ -72,7 +75,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void FreeHomeCollision() {
+    private void OnFreeHomeCollision() {
         SpawnNewCat();
 
         transform.position = originalPos;
@@ -93,7 +96,8 @@ public class PlayerController : MonoBehaviour {
     private void Move(Vector3 pos) {
         var newX = Mathf.Clamp(transform.position.x + pos.x, 0f, 13f);
         var newY = Mathf.Clamp(transform.position.y + pos.y, 0f, 13f);
-        transform.position = new Vector3(newX, newY, 0f);
+//        transform.position = new Vector3(newX, newY, 0f);
+        rb.MovePosition(new Vector3(newX, newY, 0f));
 
         if(newY > maxLineReached) {
             maxLineReached = (int)newY;

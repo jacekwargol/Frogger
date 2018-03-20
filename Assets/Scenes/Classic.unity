@@ -208,6 +208,8 @@ MonoBehaviour:
     type: 2}
   spawnRate: 4
   direction: {x: -1, y: 0, z: 0}
+  minSpeed: 3
+  maxSpeed: 5
 --- !u!1001 &26832278
 Prefab:
   m_ObjectHideFlags: 0
@@ -1113,6 +1115,8 @@ MonoBehaviour:
     type: 2}
   spawnRate: 2
   direction: {x: 1, y: 0, z: 0}
+  minSpeed: 3
+  maxSpeed: 5
 --- !u!4 &122135109
 Transform:
   m_ObjectHideFlags: 0
@@ -1644,6 +1648,8 @@ MonoBehaviour:
     type: 2}
   spawnRate: 4
   direction: {x: -1, y: 0, z: 0}
+  minSpeed: 3
+  maxSpeed: 5
 --- !u!1 &197979354
 GameObject:
   m_ObjectHideFlags: 0
@@ -8154,6 +8160,8 @@ MonoBehaviour:
     type: 2}
   spawnRate: 2
   direction: {x: 1, y: 0, z: 0}
+  minSpeed: 3
+  maxSpeed: 5
 --- !u!1001 &1184888521
 Prefab:
   m_ObjectHideFlags: 0
@@ -8798,6 +8806,8 @@ MonoBehaviour:
     type: 2}
   spawnRate: 5
   direction: {x: -1, y: 0, z: 0}
+  minSpeed: 3
+  maxSpeed: 5
 --- !u!4 &1316382774
 Transform:
   m_ObjectHideFlags: 0
@@ -9180,6 +9190,8 @@ MonoBehaviour:
     type: 2}
   spawnRate: 3
   direction: {x: 1, y: 0, z: 0}
+  minSpeed: 1
+  maxSpeed: 3
 --- !u!1 &1362301014
 GameObject:
   m_ObjectHideFlags: 0
@@ -10711,6 +10723,8 @@ MonoBehaviour:
     type: 2}
   spawnRate: 3
   direction: {x: -1, y: 0, z: 0}
+  minSpeed: 1
+  maxSpeed: 3
 --- !u!1001 &1703864812
 Prefab:
   m_ObjectHideFlags: 0
@@ -11064,6 +11078,8 @@ MonoBehaviour:
     type: 2}
   spawnRate: 3
   direction: {x: 1, y: 0, z: 0}
+  minSpeed: 3
+  maxSpeed: 5
 --- !u!4 &1772550934
 Transform:
   m_ObjectHideFlags: 0

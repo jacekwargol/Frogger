@@ -54,7 +54,7 @@ public class CollisionsHandler : MonoBehaviour {
         if(home.IsFree) {
             home.IsFree = false;
             GameManager.Instance.CatAtHome();
-            SendMessage("FreeHomeCollision");
+            SendMessage("OnFreeHomeCollision");
         }
         else {
             DestroyerCollision();
