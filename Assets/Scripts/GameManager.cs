@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
-{
-    [SerializeField]
-    private ScoreController scoreController;
+public class GameManager : MonoBehaviour {
+    [SerializeField] private Animator gameOverAnimation;
+
+    [SerializeField] private ScoreController scoreController;
 
     public static GameManager Instance { get; private set; }
 
@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     private int catsAtHome = 0;
     private readonly int catsToWin = 4;
 
-    private Animator anim;
 
     private bool isGameOver = false;
 
@@ -32,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     public void HandleLose() {
         isGameOver = true;
-        anim.SetTrigger("GameOver");
+        gameOverAnimation.SetTrigger("GameOver");
     }
 
 
@@ -50,11 +49,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-//        DontDestroyOnLoad(gameObject);
-    }
-
-    private void Start() {
-        anim = FindObjectOfType<Animator>();
+        //        DontDestroyOnLoad(gameObject);
     }
 
     private void Update() {

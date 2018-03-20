@@ -655,7 +655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4b338f85c9d3b4abdd065a2db569d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingTime: 10
+  startingTime: 60
 --- !u!114 &78767074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2173,6 +2173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed220c85a5679b46adb48973e9da571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverAnimation: {fileID: 1325957389}
   scoreController: {fileID: 2110274526}
 --- !u!4 &275879706
 Transform:
