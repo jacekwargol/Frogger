@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System;
+
 
 public class SpawnerController : MonoBehaviour {
     [SerializeField] private Transform actorPrefab;
@@ -9,14 +9,11 @@ public class SpawnerController : MonoBehaviour {
     private float timeTillSpawn;
 
 
-    // Use this for initialization
     void Start() {
-        timeTillSpawn = spawnRate;
 //        var random = new System.Random();
 //        var direction = (random.Next(0, 2) == 0 ? Vector3.left : Vector3.right);
     }
 
-    // Update is called once per frame
     void Update() {
         timeTillSpawn -= Time.deltaTime;
         if(timeTillSpawn <= 0) {
