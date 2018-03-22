@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    [SerializeField] private AudioClip deathSound;
+
     [SerializeField]
     private ScoreController scoreController;
     [SerializeField] private int startingLives = 4;
@@ -18,7 +20,8 @@ public class PlayerController : MonoBehaviour {
 
     private bool isDying = false;
 
-    private Rigidbody2D rb;
+    private AudioSource audioSource;
+
 
     public void LifeLost() {
         LivesLeft--;
@@ -36,13 +39,13 @@ public class PlayerController : MonoBehaviour {
     }
 
 
-    private void Awake() {
-        rb = GetComponent<Rigidbody2D>();
-
+    private void Start() {
         originalPos = transform.position;
         LivesLeft = startingLives;
 
         livesDisplay = FindObjectOfType<LivesDisplay>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update() {
@@ -77,11 +80,9 @@ public class PlayerController : MonoBehaviour {
 
     private void OnFreeHomeCollision() {
         SpawnNewCat();
-
         transform.position = originalPos;
 
         scoreController.ScoreCat();
-
     }
 
     private void SpawnNewCat() {
@@ -90,14 +91,14 @@ public class PlayerController : MonoBehaviour {
         sr.sprite = GetComponent<SpriteRenderer>().sprite;
         sr.sortingLayerName = "Player";
         cat.transform.localScale = transform.localScale;
-        Instantiate(cat, transform.position, Quaternion.identity);
+        cat.transform.position = transform.position;
+//        Instantiate(cat, transform.position, Quaternion.identity);
     }
 
     private void Move(Vector3 pos) {
         var newX = Mathf.Clamp(transform.position.x + pos.x, 0f, 13f);
         var newY = Mathf.Clamp(transform.position.y + pos.y, 0f, 13f);
-//        transform.position = new Vector3(newX, newY, 0f);
-        rb.MovePosition(new Vector3(newX, newY, 0f));
+        transform.position = new Vector3(newX, newY, 0f);
 
         if(newY > maxLineReached) {
             maxLineReached = (int)newY;
@@ -106,6 +107,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnDestroyerCollision() {
+//        audioSource.PlayOneShot(deathSound, 1f);
         LifeLost();
     }
 }

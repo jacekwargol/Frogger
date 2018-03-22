@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     [SerializeField] private Animator gameOverAnimation;
-
     [SerializeField] private ScoreController scoreController;
 
     public static GameManager Instance { get; private set; }
@@ -15,7 +14,6 @@ public class GameManager : MonoBehaviour {
 
     private int catsAtHome = 0;
     private readonly int catsToWin = 4;
-
 
     private bool isGameOver = false;
 
@@ -35,9 +33,11 @@ public class GameManager : MonoBehaviour {
     }
 
 
-    private void HandleWin() {
-        Debug.Log("win");
+    private void HandleWin()
+    {
+        isGameOver = true;
         scoreController.ScoreWin();
+        gameOverAnimation.SetTrigger("Win");
     }
 
     private void Awake() {
@@ -48,8 +48,6 @@ public class GameManager : MonoBehaviour {
         else if(Instance != this) {
             Destroy(gameObject);
         }
-
-        //        DontDestroyOnLoad(gameObject);
     }
 
     private void Update() {

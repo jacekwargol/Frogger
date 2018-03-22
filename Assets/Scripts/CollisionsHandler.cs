@@ -3,7 +3,6 @@
 public class CollisionsHandler : MonoBehaviour {
     private bool isOnPlatform = false;
 
-
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Platform")) {
             PlatformCollision(other);
@@ -46,6 +45,7 @@ public class CollisionsHandler : MonoBehaviour {
     }
 
     private void HomeCollision(Collider2D other) {
+        Debug.Log("home");
         var home = other.GetComponent<HomeTile>();
         if(home == null) {
             return;
