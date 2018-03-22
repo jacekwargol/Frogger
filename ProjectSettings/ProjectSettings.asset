@@ -633,7 +633,7 @@ PlayerSettings:
   cloudServicesEnabled:
     UNet: 1
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: a3240884-6592-401d-82d7-9c8a76843b91
   projectName: Frogger
   organizationId: jwargol-gmail-com
