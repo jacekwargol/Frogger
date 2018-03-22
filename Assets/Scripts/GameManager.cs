@@ -33,8 +33,7 @@ public class GameManager : MonoBehaviour {
     }
 
 
-    private void HandleWin()
-    {
+    private void HandleWin() {
         isGameOver = true;
         scoreController.ScoreWin();
         gameOverAnimation.SetTrigger("Win");
